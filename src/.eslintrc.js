@@ -5,18 +5,22 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'standard-with-typescript'
-  ],
-  overrides: [
+    'standard'
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    tsconfigRootDir: ['./tsconfig.json']
+    parser: '@typescript-eslint/parser',
+    tsconfigRootDir: './tsconfig.json'
   },
   plugins: [
-    'react'
+    'react',
+    '@typescript-eslint'
   ],
   rules: {
+    // Vos règles ESLint ici
+  },
+  globals: {
+    JSX: true
   }
 }
