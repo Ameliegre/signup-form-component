@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Flex, Box, Button, Container, FormControl, FormHelperText, Input, Heading, Text, Highlight, Stack } from '@chakra-ui/react'
 
-function App (): JSX.Element {
+type input = {
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string
+}
+
+export function App () {
+  const [input, setInput] = useState<input>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  })
+  const [error, setError] = useState<boolean>(false)
+
+  const handleSubmit = () => {
+    console.log('submit')
+  }
+
+  console.log(error)
   return (
     <Container maxW='container.m' h='100vh' bgImage="url('./images/bg-intro-desktop.png')" bgColor='hsl(0, 100%, 74%)'>
       <Flex pt={'20vh'} pl={20} pr={20} alignItems={'center'} columnGap={'42px'}>
@@ -16,14 +36,15 @@ function App (): JSX.Element {
           </Text>
           <FormControl display={'flex'} flexDirection="column" alignContent="center" bgColor={'white'} p={10} borderRadius={10} boxShadow='lg' >
             <Stack spacing={3}>
-              <Input placeholder='First Name'/>
-              <Input placeholder='Last Name'/>
-              <Input placeholder='Email Address'/>
-              <Input placeholder='Password'/>
-              <Button w={'100%'} color={'white'} bgColor={'hsl(154, 59%, 51%)'} boxShadow='Inner'>Claim your free trial </Button>
+              <Input className={ !error ? 'error' : ''} fontWeight={'500'} fontSize={14} placeholder='First Name' value={input.firstName || ''} onChange={(e) => setInput({ ...input, firstName: e.target.value })}/>
+              <Text color={'hsl(0, 100%, 74%)'} >First Name cannot be empty</Text>
+              <Input fontWeight={'500'} fontSize={14} placeholder='Last Name' value={input.lastName || ''} onChange={(e) => setInput({ ...input, lastName: e.target.value })}/>
+              <Input type='email' fontWeight={'500'} fontSize={14} placeholder='Email Address' value={input.email || ''} onChange={(e) => setInput({ ...input, email: e.target.value })}/>
+              <Input type='password' fontWeight={'500'} fontSize={14} placeholder='Password' value={input.password || ''} onChange={(e) => setInput({ ...input, password: e.target.value })}/>
+              <Button onSubmit={handleSubmit} cursor={'pointer'} w={'100%'} color={'white'} bgColor={'hsl(154, 59%, 51%)'} boxShadow='Inner'>Claim your free trial </Button>
             </Stack>
             <FormHelperText fontSize={'8px'} pl={'24px'}>
-              <Highlight query='Terms and Services' styles={{ color: 'hsl(0, 100%, 74%)' }}>By clicking the button, you are agreeing to our Terms and Services</Highlight></FormHelperText>
+              <Highlight query='Terms and Services' styles={{ color: 'hsl(0, 100%, 74%)', fontWeight: '700' }}>By clicking the button, you are agreeing to our Terms and Services</Highlight></FormHelperText>
           </FormControl>
         </Flex>
       </Flex>
