@@ -10,9 +10,6 @@ const theme = extendTheme({
       body: {
         margin: 0,
         height: '100vh'
-      },
-      '.error': {
-        borderColor: 'hsl(0, 100%, 74%)'
       }
     }
   }
