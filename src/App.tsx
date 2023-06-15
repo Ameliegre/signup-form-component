@@ -30,17 +30,14 @@ export function App () {
     setLastNameError(false)
     setEmailError(false)
     setPasswordError(false)
+    const emailValid = emailREGEX.test(input.email)
+    setIsEmailValid(false)
     if (input.firstName === '' || input.lastName === '' || input.email === '' || input.password === '') {
       setFirstNameError(true)
       setLastNameError(true)
       setEmailError(true)
       setPasswordError(true)
-    }
-
-    const emailValid = emailREGEX.test(input.email)
-    setIsEmailValid(false)
-
-    if (!emailValid) {
+    } else if (!emailValid) {
       setIsEmailValid(true)
     }
   }
@@ -83,7 +80,8 @@ export function App () {
                     {input.email === '' && emailError ? <Image height={4} src={ErrorIcon}/> : <></>}
                 </InputRightElement>
                 <Input id='email' borderColor={input.email === '' && emailError ? 'hsl(0, 100%, 74%)' : 'gray.200'} fontWeight={'500'} fontSize={14} placeholder='Email Address' value={input.email || ''} onChange={(e) => setInput({ ...input, email: e.target.value })}/>
-                {(emailError || isEmailValid || input.email === '') && (<Text as='i' pt={'4px'} alignSelf={'flex-end'} fontSize={10} color={'hsl(0, 100%, 74%)'}>Looks like this is not an email</Text>)}
+                {(emailError && input.email === '') && (<Text as='i' pt={'4px'} alignSelf={'flex-end'} fontSize={10} color={'hsl(0, 100%, 74%)'}>Email cannot be empty</Text>)}
+                {(isEmailValid) && (<Text as='i' pt={'4px'} alignSelf={'flex-end'} fontSize={10} color={'hsl(0, 100%, 74%)'}>Looks like this is not an email</Text>)}
               </InputGroup>
 
               <InputGroup display={'flex'} flexDirection={'column'}>
