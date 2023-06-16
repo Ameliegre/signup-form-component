@@ -45,15 +45,15 @@ export function App () {
   console.log(isEmailValid, emailError)
 
   return (
-    <Container maxW='container.m' h='100vh' bgImage="url('./images/bg-intro-desktop.png')" bgColor='hsl(0, 100%, 74%)'>
-      <Flex pt={'20vh'} pl={20} pr={20} alignItems={'center'} columnGap={'42px'}>
-        <Box color={'white'} w={'370px'}>
-          <Heading as='h1'>Learn to code by watching others</Heading>
-          <Text pt={'14px'} fontSize={'12px'}>See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
+    <Container maxW='container.m' h={['max-height', '100vh']} bgImage="url('./images/bg-intro-desktop.png')" bgColor='hsl(0, 100%, 74%)'>
+      <Flex pt={'20vh'} px={['', 20]} direction={['column', 'row']} justify='center' alignItems={'center'} columnGap={'42px'}>
+        <Box color={'white'} w={['', '370px']} >
+          <Heading textAlign={'center'} as='h1'>Learn to code by watching others</Heading>
+          <Text pt={'14px'} fontSize={'12px'} pb={['40px', '']} textAlign={'center'}>See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
           but understanding how developers think is invaluable.</Text>
         </Box>
-        <Flex direction={'column'} justify={'center'} rowGap={5} w={'400px'}>
-          <Text w='100%' bgColor='hsl(248, 32%, 49%)' color={'white'} pl={'70px'} py={4} fontSize={'12px'} borderRadius={10} boxShadow='0px 5px rgba(0, 0, 0, 0.15)'>
+        <Flex direction={'column'} justify={'center'} rowGap={5} >
+          <Text w='100%' bgColor='hsl(248, 32%, 49%)' color={'white'} px={'70px'} py={4} fontSize={'12px'} borderRadius={10} boxShadow='0px 5px rgba(0, 0, 0, 0.15)' textAlign={'center'}>
             <Highlight query='Try it free 7 days' styles={{ color: 'white', fontWeight: '700' }}>Try it free 7 days then $20/mo. thereafter</Highlight>
           </Text>
           <FormControl as='form' onSubmit={handleSubmit} display={'flex'} flexDirection="column" alignContent="center" bgColor={'white'} p={10} borderRadius={10} boxShadow='0px 5px rgba(0, 0, 0, 0.15)' >
@@ -94,7 +94,7 @@ export function App () {
 
               <Button onClick={handleSubmit} cursor={'pointer'} w={'100%'} color={'white'} bgColor={'hsl(154, 59%, 51%)'}>CLAIM YOUR FREE TRIAL</Button>
             </Stack>
-            <FormHelperText fontSize={'8px'} pl={'24px'}>
+            <FormHelperText fontSize={'8px'} px={'24px'} textAlign={'center'}>
               <Highlight query='Terms and Services' styles={{ color: 'hsl(0, 100%, 74%)', fontWeight: '700' }}>By clicking the button, you are agreeing to our Terms and Services</Highlight></FormHelperText>
           </FormControl>
         </Flex>
