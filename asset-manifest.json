@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/signup-form-component/static/js/main.b882ee66.js",
+    "index.html": "/signup-form-component/index.html",
+    "static/media/icon-error.svg": "/signup-form-component/static/media/icon-error.b72f792e9c900128f5c88f10a0d8d4b7.svg",
+    "main.b882ee66.js.map": "/signup-form-component/static/js/main.b882ee66.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b882ee66.js"
+  ]
+}
